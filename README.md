@@ -28,6 +28,8 @@ Or install it yourself as:
 
 ## Usage
 
+Requires installed **Imagemagick** for responsive images. This means the theme does not directly work with Github Pages. Have a look at https://github.com/design-tag-framework/jekyll-theme-dtf-basic/blob/main/.github/workflows/deploy.yml for an example how to deploy to Github.
+
 ### Pagination
 
 Using octopress paginate, see project for details (https://github.com/octopress/paginate/).
