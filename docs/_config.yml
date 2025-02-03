@@ -13,6 +13,9 @@ brand:
   brand_icon:
   text:
 
+logo: "assets/dtf_brand.svg"
+image: assets/dtf_banner.png
+
 # If you have multiple authors you can display them on projects/posts/etc.
 show_authors: true
 
