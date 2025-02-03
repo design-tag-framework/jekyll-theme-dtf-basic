@@ -4,4 +4,4 @@
 .sass-cache
 _site
 .idea
-vendor
+/vendor
