@@ -1,0 +1,45 @@
+<header class="navbar sticky-top navbar-expand-lg bg-body-tertiary shadow-sm">
+    <nav class="{{ include.container | default: 'container'}}">
+        {% assign brand = site.brand.text | default: site.title -%}
+        {% if brand != blank or site.brand.image != blank -%}
+        <a class="navbar-brand me-4" href="{{ '/' | relative_url }}">
+            {% if site.brand.image != empty -%}
+                <img src="{{ site.brand.image | relative_url }}" alt="{{ brand }}" aria-hidden="true" width="24" class="d-inline-block align-text-top">
+            {% endif -%}
+            {{ brand -}}
+        </a>
+        {% endif -%}
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul class="navbar-nav mb-2 mb-lg-0 d-flex">
+                {% for item in site.data.navigation -%}
+                    <li class="nav-item me-1">
+                        {% if page.url == item.url %}
+                            {% assign active = 'active' -%}
+                            {% assign aria = 'page' -%}
+                        {% else %}
+                            {% assign active = '' -%}
+                            {% assign aria = 'false' -%}
+                        {% endif -%}
+                        <a class="nav-link {{active}}" aria-current="{{ aria }}" href="{{ item.url | relative_url }}">{{item.title}}</a>
+                    </li>
+                {% endfor -%}
+            </ul>
+            {% if site.dark_mode == "auto" -%}
+            <span class="ms-auto nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="bd-theme">
+                    <span class="bi theme-icon-active"><i class="fa-solid fa-circle-down"></i></span>
+                    <span class="d-lg-none" id="bd-theme-text">Toggle theme</span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="bd-theme-text">
+                    <li><a class="dropdown-item icon-link" role="button" data-bs-theme-value="light"><i class="bi fa-solid fa-sun"></i> Light <span></span></a></li>
+                    <li><a class="dropdown-item icon-link" role="button" data-bs-theme-value="dark"><i class="bi fa-solid fa-moon"></i> Dark <span></span></a></li>
+                    <li><a class="dropdown-item icon-link" role="button" data-bs-theme-value="auto"><i class="bi fa-solid fa-circle-half-stroke"></i> Auto <span></span></a></li>
+                </ul>
+            </span>
+            {% endif -%}
+        </div>
+    </nav>
+</header>

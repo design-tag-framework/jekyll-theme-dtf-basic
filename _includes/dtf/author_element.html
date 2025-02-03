@@ -1,0 +1,17 @@
+{% if element.author %}
+<div class="{{ element.classes }} d-flex position-relative {{ element.class }}">
+    {% if element.author.picture -%}
+    <div class="flex-shrink-0 ms-2 d-flex align-items-center pe-1">
+        {% picture_element class="shadow-sm round-image" src=element.author.picture alt="Author Image" height="2rem" size-hint="xs" %}
+    </div>
+    {% endif -%}
+    <div class="flex-grow-1 d-flex flex-column">
+        {% if element.author.name -%}
+        <small class="fw-bold">{{ element.author.name }}</small>
+        {% endif -%}
+        {% if element.author.description -%}
+        <small class="text-muted">{{ element.author.description }}</small>
+        {% endif -%}
+    </div>
+</div>
+{% endif %}

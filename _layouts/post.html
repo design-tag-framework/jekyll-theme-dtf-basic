@@ -1,0 +1,43 @@
+---
+layout: page
+---
+
+<small class="text-muted mt-3">{{ page.date | date_to_long_string }}</small>
+
+<h1 class="mt-0">{{ page.title }}</h1>
+
+{% if page.description -%}
+<p class="text-secondary mb-3">{{ page.description }}</p>
+{% endif -%}
+
+{% if site.show_authors %}
+{% author_element class="mb-2" %}
+{% endif -%}
+
+{% if page.tags %}
+<div class="mb-4">
+{% for tag in page.tags -%}
+<a href="{{ '/tag/' | append:  tag | relative_url }}"><span class="badge text-bg-secondary">{{ tag }}</span></a>
+{% endfor -%}
+</div>
+{% else %}
+<p class="mb-3"></p>
+{% endif -%}
+
+{% unless page.hide_image %}
+{% if page.image -%}
+{% picture_element src=page.image alt="Main Post Image" class="object-fit-cover col-md-8" -%}
+{% endif -%}
+{% endunless %}
+
+<p class="mb-5"></p>
+
+{{ content }}
+
+{% if site.show_related_posts -%}
+{% post_group title="Related Posts" -%}
+{% for post in site.related_posts limit:5 -%}
+{% post_element post -%}
+{% endfor -%}
+{% endpost_group -%}
+{% endif -%}

@@ -1,0 +1,15 @@
+---
+permalink: /projects
+layout: page
+title: My Projects
+paginate:
+    collection: projects
+---
+
+<h1>My Projects</h1>
+
+{% project_group %}
+{% for project in paginator.projects %}
+{% project_element project %}
+{% endfor %}
+{% endproject_group %}

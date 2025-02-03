@@ -1,0 +1,36 @@
+title: Jekyll DTF Basic Theme
+description: A beautiful and simple Jekyll theme based on the Design Tag Framework (DTF), mainly for showcasing the DTF features.
+author: sosnowski
+baseurl: /jekyll-theme-dtf-basic
+url: https://design-tag-framework.github.io
+
+theme: jekyll-theme-dtf-basic
+
+# brand_icon is used as favicon if generate_favicon == false
+# default brand text is the title
+brand:
+  image: "assets/dtf_brand.svg"
+  brand_icon:
+  text:
+
+# If you have multiple authors you can display them on projects/posts/etc.
+show_authors: true
+
+# Display the top 5 related posts
+show_related_posts: true
+
+# Setting for dark mode, currently only "auto" is working
+dark_mode: "auto"
+
+footer: "© Markus Sosnowski"
+
+# Generate Favicons from the brand.image
+generate_favicon: true
+
+collections:
+  projects:
+    output: true
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-minifier

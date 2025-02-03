@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="{{site.lang}}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ site.title }}</title>
+    {% include head.html -%}
+    <link href="{% link assets/css/main.scss %}" rel="stylesheet">
+    {% seo -%}
+    {% feed_meta %}
+</head>
+<body class="min-vh-100 d-flex flex-column">
+    {{ content }}
+<script src="{% link assets/js/bootstrap.bundle.min.js %}" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"></script>
+{% if site.dark_mode == "auto" -%}
+<script src="{% link assets/js/darkmode.js %}"></script>
+{% endif %}
+</body>
+</html>

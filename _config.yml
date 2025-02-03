@@ -1,0 +1,84 @@
+lang: en
+
+show_authors: true
+show_related_posts: true
+
+dark_mode: "auto"
+
+# Should be the same as what imagemagick generates!
+responsive_image_sizes:
+  xs: 256
+  sm: 576
+  md: 768
+  lg: 992
+  xl: 1200
+  xxl: 1400
+
+footer: ""
+
+generate_favicon: true
+
+# brand_icon is only used as favicon if generate_favicon == false
+brand:
+  image:
+  brand_icon:
+  text:
+
+permalinks: /:year/:month/:day/:title/
+
+jekyll-archives:
+  enabled:
+    - year
+    - month
+    - day
+    - tags
+  layout: archive
+  permalinks:
+    year: '/:year/'
+    month: '/:year/:month/'
+    day: '/:year/:month/:day/'
+    tag: '/tag/:name/'
+
+pagination:
+  limit: false
+  per_page: 10
+
+lsi: true
+
+sass:
+  style: compressed
+  quiet_deps: true
+
+kramdown:
+  syntax_highlighter: rouge
+
+jekyll-minifier:
+  uglifier_args:
+    harmony: true
+
+imagemagick:
+  enabled: true
+  widths:
+    - 256
+    - 576
+    - 768
+    - 992
+    - 1200
+    - 1400
+  input_directories:
+    - assets/img
+  input_formats:
+    - ".png"
+    - ".jpg"
+    - ".jpeg"
+    - ".tiff"
+  output_formats:
+    jpg: "-quality 93% -define jpeg:dct-method=float -strip -interlace Plane"
+    webp: "-quality 50% -define webp:emulate-jpeg-size=true"
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-archives
+  - jekyll-seo-tag
+  - jekyll-design-tag-framework

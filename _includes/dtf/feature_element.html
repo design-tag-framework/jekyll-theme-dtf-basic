@@ -1,0 +1,13 @@
+<div class="{{ element.classes }} col p-3 m-2 bg-body-secondary position-relative shadow-sm{% if element.url %} feature_element_link{% endif %}">
+    <div class="d-flex h-100 flex-column justify-content-between">
+        {% if element.icon -%}
+        {% picture_element img_classes="object-fit-cover" src=element.icon alt="Feature Icon" height="2rem" %}
+        {% elsif element.icon-class -%}
+        <i class="ms-1 my-3 fs-5 {{ element.icon-class }}"></i>
+        {% endif %}
+        {% if element.url %}<a class="stretched-link link-primary" href="{{ element.url | relative_url }}">{% endif %}
+        <h5 class="mb-2">{{ element.title }}</h5>
+        {% if element.url %}</a>{% endif %}
+        <p class="mb-1">{{ element.description | default: element.excerpt | strip_html }}</p>
+    </div>
+</div>

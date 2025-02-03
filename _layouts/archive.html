@@ -1,0 +1,19 @@
+---
+layout: page
+---
+
+{% if page.title %}
+<h1>Archive of posts for {{ page.type }}: {{ page.title }}</h1>
+{% elsif page.type == "month" %}
+<h1>Archive of posts from {{ page.date | date: "%B %Y" }}</h1>
+{% elsif page.type == "year" %}
+<h1>Archive of posts from {{ page.date | date: "%Y" }}</h1>
+{% elsif page.type == "day" %}
+<h1>Archive of posts from {{ page.date | date_to_long_string }}</h1>
+{% endif %}
+
+{% post_group -%}
+{% for post in page.posts -%}
+{% post_element post -%}
+{% endfor -%}
+{% endpost_group -%}

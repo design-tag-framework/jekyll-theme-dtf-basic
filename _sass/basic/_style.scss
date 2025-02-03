@@ -1,0 +1,55 @@
+
+.design_group {
+  @extend .pt-4;
+  @extend .pb-3;
+
+  h1, h2, h3, h4 {
+    @extend .mb-2;
+  }
+}
+
+h1 {
+  @extend .mt-5;
+  @extend .mb-4;
+}
+
+.container {
+  h1:first-child, h2:first-child, h3:first-child, h4:first-child {
+    @extend .mt-0;
+  }
+}
+
+h2 {
+  @extend .mt-5;
+  @extend .mb-4;
+}
+
+h3 {
+  @extend .mt-5;
+  @extend .mb-4;
+}
+
+h4 {
+  @extend .mt-4;
+  @extend .mb-3;
+}
+
+.project_element_link {
+  .card:hover{
+    @extend .shadow;
+  }
+}
+
+.feature_element_link {
+  &:hover{
+    @extend .shadow;
+  }
+}
+
+table {
+  @extend .table;
+}
+
+.round-image {
+  border-radius: 50%;
+}

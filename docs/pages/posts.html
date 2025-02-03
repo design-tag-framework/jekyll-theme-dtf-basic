@@ -1,0 +1,14 @@
+---
+permalink: /posts/
+layout: page
+title: Posts
+paginate: true
+---
+
+<h1>Blog</h1>
+
+{% post_group %}
+{% for post in paginator.posts %}
+{% post_element post %}
+{% endfor %}
+{% endpost_group %}

@@ -1,0 +1,19 @@
+<div class="{{ element.classes }} d-flex position-relative mb-4">
+    {% if element.image -%}
+    <div class="flex-shrink-0">
+        {% picture_element class="shadow-sm object-fit-cover" src=element.image alt="Post Teaser Image" height="7rem" size-hint="xs" %}
+    </div>
+    {% endif -%}
+
+    <div class="flex-grow-1 ms-3 d-flex flex-column">
+        <small class="text-muted">{{ element.date | date_to_long_string }}</small>
+        <h5>{{ element.title }}</h5>
+        <p class="mb-0">
+            {{ element.description | default: element.excerpt | strip_html }}
+        </p>
+        {% if element.url -%}<a class="mt-auto icon-link icon-link-hover stretched-link" href="{{ element.url | relative_url }}">
+            Read<i class="bi mb-1" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></i>
+        </a>
+        {% endif -%}
+    </div>
+</div>

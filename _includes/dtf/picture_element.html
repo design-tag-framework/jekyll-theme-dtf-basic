@@ -1,0 +1,13 @@
+{% assign img_classes = element.class | default: "img-fluid" -%}
+<picture class="{{element.classes}} d-flex">
+    {% if element.size-hint %}
+        {% assign image_size = site.responsive_image_sizes[element.size-hint] %}
+        <source srcset="{{ element.src | asset_expand: image_size, '.webp' | relative_url }} {{ image_size }}w" type="image/webp" />
+    {% else %}
+        {% for image_size in site.responsive_image_sizes -%}
+            <source {% unless forloop.last %} media="(max-width: {{ image_size[1] }}px)" {% endunless %} srcset="{{ element.src | asset_expand: image_size[1], '.webp' | relative_url }} {{ image_size[1] }}w" type="image/webp" />
+        {% endfor %}
+    {% endif %}
+
+    <img src="{{ element.src | relative_url }}" class="{{ img_classes }} shadow-sm" alt="{{element.alt}}" {% if element.height %} style="height: {{element.height}}" {% endif %}/>
+</picture>

@@ -1,0 +1,12 @@
+<div class="{{ group.classes }}">
+    <h3 class="position-relative">{{ group.title }}
+    {% if group.link -%}
+        <a class="ml-2 fs-6 icon-link icon-link-hover stretched-link" href="{{ group.link | relative_url }}">
+            View all<i class="bi mb-1" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></i>
+        </a>
+    {% endif -%}
+    </h3>
+
+    {{ content }}
+
+</div>

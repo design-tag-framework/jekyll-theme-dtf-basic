@@ -1,0 +1,4 @@
+{% assign alert_type = group.variant | default: "primary" -%}
+<div class="{{ group.classes }} alert alert-{{ alert_type }}" role="alert">
+    {{ content }}
+</div>

@@ -1,0 +1,17 @@
+<div class="{{ group.classes }}">
+    <h3>{{ group.title }}</h3>
+
+    <div class="row">
+        {{ content }}
+
+        {% if group.link -%}
+        <div class="project_element_link col-sm-3">
+            <div href="{{ link }}" class="card h-100 align-items-center justify-content-center bg-body-tertiary shadow-sm">
+                <a class="icon-link icon-link-hover stretched-link" href="{{ group.link | relative_url }}">
+                View all<i class="bi mb-1" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></i>
+                </a>
+            </div>
+        </div>
+        {% endif -%}
+    </div>
+</div>
