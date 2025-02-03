@@ -38,10 +38,11 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-      - uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: imagemagick
-          version: 1.0
+      - name: install imagemagick
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+        shell: bash
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --source docs --baseurl "${{ steps.pages.outputs.base_path }}"
